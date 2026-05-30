@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小红书 AI 评论区灵感地图 Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="phone" aria-label="小红书笔记详情页 AI Demo">
+      <div class="status">
+        <span>17:28</span>
+        <span>5G  86%</span>
+      </div>
+
+      <section class="page">
+        <header class="topbar">
+          <button class="icon-btn" aria-label="返回">‹</button>
+          <div class="top-author">
+            <span class="avatar avatar-red">住</span>
+            <div>
+              <strong>住进风里</strong>
+              <small>真实装修记录</small>
+            </div>
+          </div>
+          <div class="top-actions">
+            <button class="follow-btn">关注</button>
+            <button class="share-btn" id="shareBtn" aria-label="转发">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8.5 7.5 12 4l3.5 3.5" />
+                <path d="M12 4v11" />
+                <path d="M6 11.5v6A2.5 2.5 0 0 0 8.5 20h7a2.5 2.5 0 0 0 2.5-2.5v-6" />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="image-wrap">
+          <img class="note-img" src="./assets/living-room-lighting.png" alt="20 平小户型客厅灯光真实图片" />
+          <div class="dots" aria-hidden="true">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </section>
+
+        <section class="content">
+          <h1>20㎡小客厅灯光布置｜入住半年后说说真实感受</h1>
+          <p class="desc">
+            我家客厅面积不大，层高 2.7m，一开始也很怕主灯压层高、晚上不够亮。入住半年后，我觉得小户型灯光最重要的不是买多贵，而是先分清：日常照明、看书办公、晚上放松这三个场景。
+          </p>
+          <div class="tags">
+            <span>#小户型装修</span>
+            <span>#客厅灯光</span>
+            <span>#装修避坑</span>
+            <span>#入住体验</span>
+          </div>
+          <div class="note-meta-row">
+            <div class="meta">2天前 上海</div>
+            <button class="dislike-btn" type="button" aria-label="不喜欢">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.5" />
+                <path d="M8.8 10.2h.1" />
+                <path d="M15.1 10.2h.1" />
+                <path d="M8.4 15.5c1.9-1.4 5.3-1.4 7.2 0" />
+              </svg>
+              <span>不喜欢</span>
+            </button>
+          </div>
+
+          <div class="comment-head">
+            <div class="comment-title">
+              <strong>共 <span id="headCommentCount">120</span> 条评论</strong>
+              <button class="sort-btn" type="button" aria-label="评论排序">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+            <button class="ai-head-btn" id="openAi" type="button">AI 看评论</button>
+          </div>
+
+          <div class="ai-entry-row hidden" id="aiEntryRow"></div>
+
+          <section class="ai-panel" id="aiPanel" aria-live="polite">
+            <div id="aiCards"></div>
+            <h2 class="guess-title">猜你想搜：</h2>
+            <div id="guessList" class="guess-list"></div>
+          </section>
+
+          <div id="commentList" class="comment-list"></div>
+        </section>
+      </section>
+
+      <form class="bottom-bar" id="commentForm">
+        <input id="commentInput" placeholder="说点什么..." aria-label="发表评论" />
+        <button class="bottom-action" type="button" aria-label="点赞">♡<span>1.2w</span></button>
+        <button class="bottom-action" type="button" aria-label="收藏">☆<span>856</span></button>
+        <button class="bottom-action" id="commentAction" type="button" aria-label="评论">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.5 6.8A7.8 7.8 0 0 1 12.2 3h.2c4.2 0 7.6 2.9 7.6 6.6s-3.4 6.6-7.6 6.6h-.8l-4.7 3.1.8-4.5A6.4 6.4 0 0 1 4.5 9.6V6.8Z" />
+          </svg>
+          <span id="commentCount">120</span>
+        </button>
+      </form>
+
+      <div class="toast" id="toast">已复制分享链接</div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
