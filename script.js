@@ -103,10 +103,10 @@ function scrollToComments(behavior = "smooth") {
   });
 }
 
-function landOnComments() {
-  scrollToComments("auto");
-  requestAnimationFrame(() => scrollToComments("auto"));
-  setTimeout(() => scrollToComments("auto"), 120);
+function landAtContentTop() {
+  page.scrollTo({ top: 0, behavior: "auto" });
+  requestAnimationFrame(() => page.scrollTo({ top: 0, behavior: "auto" }));
+  setTimeout(() => page.scrollTo({ top: 0, behavior: "auto" }), 120);
 }
 
 function renderComments() {
@@ -233,6 +233,6 @@ document.querySelector("#shareBtn").addEventListener("click", () => {
 
 document.querySelector("#openAi").addEventListener("click", enableAI);
 renderComments();
-landOnComments();
-window.addEventListener("load", landOnComments);
-window.addEventListener("pageshow", landOnComments);
+landAtContentTop();
+window.addEventListener("load", landAtContentTop);
+window.addEventListener("pageshow", landAtContentTop);
